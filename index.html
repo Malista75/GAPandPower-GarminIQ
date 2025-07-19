@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaceAndPower - Garmin IQ Data Field</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #34D399, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .feature-card, .science-card {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover, .science-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .formula-box {
+            background-color: #111827;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #3B82F6;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .critical-box {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #EF4444;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header Section -->
+    <header class="text-center py-16 md:py-24 px-4">
+        <h1 class="text-5xl md:text-7xl font-black tracking-tight">
+            <span class="gradient-text">PaceAndPower</span>
+        </h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+            Understand your true running effort. A free, clean, and powerful data field for your Garmin watch. No extra sensors required.
+        </p>
+        <div class="mt-8">
+            <a href="https://apps.garmin.com/en-US/apps/YOUR-APP-ID-HERE" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
+                Get it on Connect IQ
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pb-24">
+
+        <!-- What is PaceAndPower? -->
+        <section id="about" class="mb-20">
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-2xl p-8 md:p-12 border border-gray-700">
+                <h2 class="text-3xl font-bold text-center mb-6">What is PaceAndPower?</h2>
+                <p class="text-gray-300 text-center text-lg leading-relaxed">
+                    PaceAndPower was born from a simple idea: running data should be insightful, not cluttered. While your watch can show you dozens of metrics, the most important ones are often lost on a crowded screen. This data field focuses on the four key metrics that give you the best understanding of your performance in real-time: <strong class="text-white">Power</strong>, <strong class="text-white">Grade Adjusted Pace (GAP)</strong>, <strong class="text-white">3-Min Average Power</strong>, and the new <strong class="text-white">Environmental Effect</strong>.
+                </p>
+                 <p class="text-gray-300 text-center text-lg leading-relaxed mt-4">
+                    It works on almost any Garmin watch, new or old, without needing an expensive foot pod. Just install it, configure your weight, and run!
+                </p>
+            </div>
+        </section>
+
+        <!-- Core Metrics Explained -->
+        <section id="metrics" class="mb-24">
+            <h2 class="text-4xl font-bold text-center mb-12">The Core Metrics Explained</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="feature-card">
+                    <h3 class="text-2xl font-bold mb-3 gradient-text">Running Power (Watts)</h3>
+                    <p class="text-gray-300">Power is the ultimate measure of your output. Unlike pace, which is affected by hills, or heart rate, which lags behind your effort, power tells you exactly how hard you're working, right now.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-bold mb-3 gradient-text">Grade Adjusted Pace (GAP)</h3>
+                    <p class="text-gray-300">Ever wonder what your pace would be on flat ground while you're climbing a steep hill? That's GAP. It estimates your equivalent flat-ground pace, allowing you to maintain a consistent effort.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-bold mb-3 gradient-text">3-Min Avg Power</h3>
+                    <p class="text-gray-300">This rolling average smooths out fluctuations and gives you a stable target to hold. It's an excellent proxy for your short-term sustainable effort and helps you avoid going out too hard.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-2xl font-bold mb-3 gradient-text">Environmental Effect (%)</h3>
+                    <p class="text-gray-300">This unique metric quantifies the combined effect of hills and wind as a percentage of your effort. A positive value means you're fighting the environment; a negative value means it's helping you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works - DETAILED VERSION -->
+        <section id="science" class="mt-24">
+             <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-6">How Power is Calculated: The Science</h2>
+                <p class="text-gray-300 text-center text-lg leading-relaxed mb-12 max-w-4xl mx-auto">
+                    The power number on your watch is a sophisticated calculation based on a well-established physics model. It is the sum of three distinct components, each representing the work you do to overcome a specific force.
+                </p>
+                <div class="text-center bg-gray-800 p-6 rounded-lg mb-12 border border-gray-700">
+                    <code class="text-xl md:text-2xl font-mono text-green-400">Total Power = Physiological + Aerodynamic + Climbing</code>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Physiological Power Card -->
+                    <div class="science-card">
+                        <h3 class="text-2xl font-bold mb-3 gradient-text">1. Physiological Power (Pr)</h3>
+                        <p class="text-gray-300 mb-4">This is the foundational power required to propel your body forward on a perfectly flat, windless surface. It's the basic metabolic cost of the running motion itself.</p>
+                        <div class="formula-box">
+                            <code class="text-lg font-mono text-cyan-400">Pr = C * weight * speed</code>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li><strong class="text-white">C:</strong> A running economy coefficient (0.98), representing the energy needed to move 1kg of mass over 1km.</li>
+                            <li><strong class="text-white">weight:</strong> Your body mass in kilograms.</li>
+                            <li><strong class="text-white">speed:</strong> Your current running speed in meters per second.</li>
+                        </ul>
+                        <div class="critical-box">
+                            <h4 class="font-bold text-red-400">Why Your `weight` Setting is CRITICAL</h4>
+                            <p class="text-red-200">This power component is directly proportional to your weight. An inaccurate weight setting is the single biggest source of error in your power data. Setting it correctly is essential.</p>
+                        </div>
+                    </div>
+
+                    <!-- Aerodynamic Power Card -->
+                    <div class="science-card">
+                        <h3 class="text-2xl font-bold mb-3 gradient-text">2. Aerodynamic Power (Pa)</h3>
+                        <p class="text-gray-300 mb-4">This is the power you expend to overcome air resistance. You are constantly pushing a column of air out of your way as you run.</p>
+                        <div class="formula-box">
+                             <code class="text-lg font-mono text-cyan-400">Pa = 0.5 * Ro * CdA * relativeWindSpeed³</code>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li><strong class="text-white">Ro:</strong> The density of the air (constant).</li>
+                            <li><strong class="text-white">CdA:</strong> Your coefficient of drag area (constant).</li>
+                            <li><strong class="text-white">relativeWindSpeed:</strong> Your speed relative to the air (your speed + wind effect).</li>
+                        </ul>
+                        <div class="critical-box">
+                            <h4 class="font-bold text-red-400">Why the `wind` Setting is So Important</h4>
+                            <p class="text-red-200">Power needed to fight air resistance increases with the CUBE of relative wind speed. A light headwind can easily double this part of your power cost. If you don't set the wind on a windy day, your power will be significantly underestimated.</p>
+                        </div>
+                    </div>
+
+                    <!-- Climbing Power Card -->
+                    <div class="science-card">
+                        <h3 class="text-2xl font-bold mb-3 gradient-text">3. Climbing Power (Pc)</h3>
+                        <p class="text-gray-300 mb-4">This is the power required to lift your body mass against gravity when running uphill. When running downhill, this value becomes negative, as gravity helps you.</p>
+                        <div class="formula-box">
+                            <code class="text-lg font-mono text-cyan-400">Pc = (slope/100) * weight * G * speed * Nu</code>
+                        </div>
+                         <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li><strong class="text-white">slope:</strong> The steepness of the terrain from GPS.</li>
+                            <li><strong class="text-white">weight:</strong> Your body mass in kilograms.</li>
+                            <li><strong class="text-white">G:</strong> The acceleration due to gravity (9.81 m/s²).</li>
+                             <li><strong class="text-white">Nu:</strong> A biomechanical efficiency factor that adjusts for how your body's efficiency changes on different grades.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                     <h3 class="text-3xl font-bold text-center mb-6">Scientific Basis and Further Reading</h3>
+                     <p class="text-gray-400 text-center max-w-3xl mx-auto">This three-component model is a standard approach in exercise physiology. For a deeper dive, we recommend these resources:</p>
+                     <ul class="text-center mt-4 text-blue-400 space-y-1">
+                         <li>"Run with Power" by Jim Vance</li>
+                         <li>TrainingPeaks articles on running power</li>
+                         <li>Stryd's public white papers on power calculation</li>
+                     </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pro Version Teaser -->
+        <section id="pro" class="mt-24 text-center">
+            <h2 class="text-4xl font-bold mb-4">Coming Soon: The Pro Version</h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Love PaceAndPower? Get ready for the next level. The upcoming Pro version will unlock advanced analytics like <strong class="text-white">real-time VO2max estimation</strong>, <strong class="text-white">W'bal (anaerobic work capacity) tracking</strong>, and more detailed power metrics to give you the ultimate competitive edge.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-gray-800">
+        <p class="text-gray-500">Created with passion for runners. &copy; 2025 Your Name Here.</p>
+    </footer>
+
+</body>
+</html>
